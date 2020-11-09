@@ -1,6 +1,13 @@
-let useINput:any;
-
-useINput=34;
+let useINput:unknown;
 
 
-let myy:string=useINput
+useINput='tf';
+
+let myy:string;
+
+if(typeof useINput=='string'){
+
+    myy=useINput
+}
+
+console.log(typeof useINput)

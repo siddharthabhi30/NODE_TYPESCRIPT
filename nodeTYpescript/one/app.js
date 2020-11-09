@@ -1,3 +1,7 @@
 var useINput;
-useINput = 34;
-var myy = useINput;
+useINput = 'tf';
+var myy;
+if (typeof useINput == 'string') {
+    myy = useINput;
+}
+console.log(typeof useINput);

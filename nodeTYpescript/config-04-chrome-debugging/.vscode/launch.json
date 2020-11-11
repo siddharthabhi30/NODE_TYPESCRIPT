@@ -5,12 +5,13 @@
   "version": "0.2.0",
   "configurations": [
 
+
     {
       "type": "chrome",
       "request": "launch",
       "name": "Launch Chrome against localhost",
-      "url": "http://localhost:3000", //where our dev server is running
-      "webRoot": "${workspaceFolder}/config-04-chrome-debugging" // this project is host of the file
+      "url": "http://localhost:3000/index.html", //where our dev server is running
+      "webRoot": "${workspaceFolder}" // this project is host of the file
     }
   ]
 }

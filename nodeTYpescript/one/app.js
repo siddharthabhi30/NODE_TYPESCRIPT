@@ -1,7 +1,5 @@
-var useINput;
-useINput = 'tf';
-var myy;
-if (typeof useINput == 'string') {
-    myy = useINput;
+function finaffl() {
+    return console.log(33);
 }
-console.log(typeof useINput);
+var eee = finaffl();
+console.log(eee);

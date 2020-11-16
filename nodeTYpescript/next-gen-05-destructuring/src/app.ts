@@ -55,9 +55,10 @@ const [hobby1, hobby2, ...remainingHobbies] = hobbies;
 
 console.log(hobbies, hobby1, hobby2);
 
-const { firstName: userName, age } = person;
+// we are overriding the names
+const { firstName: userName, age:agee } = person; 
 
-console.log(userName, age, person);
+console.log(userName, agee, person);
 
 
 let oo=[1,2,3]
@@ -67,3 +68,5 @@ let [pp,ll]=oo;
 
 let [pp2,ll2,...left_elements]=oo;
 console.log(pp,ll,left_elements);
+
+

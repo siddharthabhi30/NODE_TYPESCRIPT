@@ -10,6 +10,7 @@ type Employee = {
 
 // interface ElevatedEmployee extends Employee, Admin {}
 
+//intersection is happening here
 type ElevatedEmployee = Admin & Employee;
 
 const e1: ElevatedEmployee = {
@@ -18,7 +19,10 @@ const e1: ElevatedEmployee = {
   startDate: new Date()
 };
 
-type Combinable = string | number;
+type Combinable = string |number;
 type Numeric = number | boolean;
 
+
+//typoe number only intersection is happening here -- number is only same in both
 type Universal = Combinable & Numeric;
+

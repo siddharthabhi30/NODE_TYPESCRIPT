@@ -24,6 +24,8 @@ type Numeric = number | boolean;
 type Universal = Combinable & Numeric;
 
 function add(a: Combinable, b: Combinable) {
+
+  //this is doing function of type guard 
   if (typeof a === 'string' || typeof b === 'string') {
     return a.toString() + b.toString();
   }
@@ -34,6 +36,7 @@ type UnknownEmployee = Employee | Admin;
 
 function printEmployeeInformation(emp: UnknownEmployee) {
   console.log('Name: ' + emp.name);
+  //typeguard is happening here
   if ('privileges' in emp) {
     console.log('Privileges: ' + emp.privileges);
   }
@@ -64,8 +67,9 @@ type Vehicle = Car | Truck;
 
 const v1 = new Car();
 const v2 = new Truck();
-
-function useVehicle(vehicle: Vehicle) {
+ // sincve javascript doesnt know interface(it is compile time only not runtime) we actually cant use instancde of  with it...
+/// we are checkng in native js that if this obj is created from  which construtor function
+ function useVehicle(vehicle: Vehicle) {
   vehicle.drive();
   if (vehicle instanceof Truck) {
     vehicle.loadCargo(1000);

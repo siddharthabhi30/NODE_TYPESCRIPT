@@ -76,6 +76,7 @@ useVehicle(v1);
 useVehicle(v2);
 
 interface Bird {
+  //this is actually not a value
   type: 'bird';
   flyingSpeed: number;
 }
@@ -85,11 +86,22 @@ interface Horse {
   runningSpeed: number;
 }
 
+
+let aa:Horse={
+  runningSpeed:34,
+  //thgis type is constant see older lectures
+  //it also helps ts to determine data as we have fixed type of this interface has to be 'horse'
+  type:'horse'
+}
+
+
+//this shows that anything that is like num:{some datatype} --here {} <- can contain union type 
 type Animal = Bird | Horse;
 
 function moveAnimal(animal: Animal) {
   let speed;
   switch (animal.type) {
+    //ts even know this property is there
     case 'bird':
       speed = animal.flyingSpeed;
       break;

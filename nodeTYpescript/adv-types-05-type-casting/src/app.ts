@@ -100,10 +100,17 @@ function moveAnimal(animal: Animal) {
 }
 
 moveAnimal({type: 'bird', flyingSpeed: 10});
+//we are type casting it to input element ...but this is jsx way
 
 // const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
-const userInputElement = document.getElementById('user-input');
+//this is ts way of typecasaitng
+//but thisa is not good below version is good ,,,coz userINput can also be null
+//const userInputElement = document.getElementById('user-input') as HTMLInputElement;
+
+const userInputElement = document.getElementById('user-input')
+
 
 if (userInputElement) {
+//we  are safe for compile time now atleast
   (userInputElement as HTMLInputElement).value = 'Hi there!';
 }

@@ -89,13 +89,66 @@ function createCourseGoal(
   description: string,
   date: Date
 ): CourseGoal {
+  //we could have initialized object directly .,,,,but what if we want to do it step by step
   let courseGoal: Partial<CourseGoal> = {};
   courseGoal.title = title;
   courseGoal.description = description;
   courseGoal.completeUntil = date;
+  //partial tells ts that i am creating an object but it has to be partial...at the end ..we need to converty back
   return courseGoal as CourseGoal;
 }
 
+//readonly thing is happening here
 const names: Readonly<string[]> = ['Max', 'Anna'];
 // names.push('Manu');
 // names.pop();
+
+let arr:(string|number)[]=[]
+arr.push(23);
+arr.push('d');
+console.log(arr)
+
+
+
+//truy to enter 23 and starting number
+//let arr2:string[]|number[]=[];
+//arr2.push(23);
+//arr2.push('d');
+console.log(arr)
+
+// class check{
+//   public arr2:string[]|number[]=[11,88];
+
+//   constructor(num:number){
+
+//     this.arr2.push(num);
+//   }
+  
+
+// }
+// //in generic ttype we lock in a certain type and then doit accoredingly
+// //union is flexible 
+// let xxx=new check(55);
+// console.log(xxx.arr2)
+// xxx.arr2.push(23);
+
+let arr4:string[]|number[]=[1,2,3];
+
+
+function aa<U>(oo:U){
+  if(typeof oo=='string'){
+   
+
+    return "good"
+
+  }
+  else{
+    return "np"
+  }
+
+ 
+}
+
+
+const tyty=aa<string>(322);
+console.log(tyty);

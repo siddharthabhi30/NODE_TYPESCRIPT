@@ -65,11 +65,14 @@ class DataStorage<T extends string | number | boolean> {
 const textStorage = new DataStorage<string>();
 textStorage.addItem('Max');
 textStorage.addItem('Manu');
+//T can take multiple values but at the end takes only one ....  i.e string
+//textStorage.addItem(23);
 textStorage.removeItem('Max');
 console.log(textStorage.getItems());
 
 const numberStorage = new DataStorage<number>();
 
+//below code doesn't work..objects are searchable by using exact reference of object ..eg using maxObj for deleting purpose only
 // const objStorage = new DataStorage<object>();
 // const maxObj = {name: 'Max'};
 // objStorage.addItem(maxObj);
@@ -77,3 +80,31 @@ const numberStorage = new DataStorage<number>();
 // // ...
 // objStorage.removeItem(maxObj);
 // console.log(objStorage.getItems());
+
+
+let a=[];
+a.push(324);
+a.push('ss')
+console.log(a);
+
+// class test{
+//   private aa:any[]=[]
+
+//   add(item){
+//     //this.aa.push(item);
+    
+//   }
+// }
+
+
+
+function aas(my:number){
+  my++;
+  let aa=my;
+  console.log(aa)
+}
+let yui=33;
+aas(yui);
+console.log(yui);
+
+

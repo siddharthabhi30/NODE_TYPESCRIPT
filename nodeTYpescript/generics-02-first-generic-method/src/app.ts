@@ -16,7 +16,7 @@
 // })
 
 
- //below function can extend to integer type string type
+ //below function can extend to integer type string type or any type
 function merge<T extends object, U extends object>(objA: T, objB: U) {
   return Object.assign(objA, objB);
 }

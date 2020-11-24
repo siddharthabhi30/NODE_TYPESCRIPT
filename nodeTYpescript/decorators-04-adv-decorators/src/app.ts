@@ -5,8 +5,8 @@ function Logger(logString: string) {
   };
 }
 
-function WithTemplate(template: string, hookId: string) {
-  return function(constructor: any) {
+function WithTemplate2(template: string, hookId: string) {
+  return function(constructor: any|Function) {
     const hookEl = document.getElementById(hookId);
     const p = new constructor();
     if (hookEl) {
@@ -17,12 +17,12 @@ function WithTemplate(template: string, hookId: string) {
 }
 
 // @Logger('LOGGING - PERSON')
-@WithTemplate('<h1>My Person Object</h1>', 'app')
+@WithTemplate2('<h1>My Person Object</h1>', 'app')
 class Person {
   name = 'Max';
 
   constructor() {
-    console.log('Creating person object...');
+    console.log('Creatinffffffgffg person object...');
   }
 }
 

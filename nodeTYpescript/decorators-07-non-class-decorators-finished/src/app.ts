@@ -41,13 +41,14 @@ function Log(target: any, propertyName: string | Symbol) {
   console.log(target, propertyName);
 }
 
+//same target fro prototype  and name is the functions name
 function Log2(target: any, name: string, descriptor: PropertyDescriptor) {
   console.log('Accessor decorator!');
   console.log(target);
   console.log(name);
   console.log(descriptor);
 }
-
+//if method is static function then constructor fuinction is returned
 function Log3(
   target: any,
   name: string | Symbol,
@@ -58,6 +59,7 @@ function Log3(
   console.log(name);
   console.log(descriptor);
 }
+//name is name of method used in parameter
 
 function Log4(target: any, name: string | Symbol, position: number) {
   console.log('Parameter decorator!');

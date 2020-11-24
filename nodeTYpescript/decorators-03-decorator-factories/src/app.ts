@@ -1,7 +1,8 @@
 function Logger(logString: string) {
+  // we can write _ instead of constructor if we dont want its use
   return function(constructor: Function) {
     console.log(logString);
-    console.log(constructor);
+    console.log();
   };
 }
 
@@ -17,3 +18,7 @@ class Person {
 const pers = new Person();
 
 console.log(pers);
+
+
+//decorator  factory...the factory returns the fucntion ..wer can configure the fucntion 
+//we are getting more power

@@ -20,6 +20,7 @@ function WithTemplate(template: string, hookId: string) {
 }
 
 // @Logger('LOGGING - PERSON')
+//run and see which notation fucntion works first
 @Logger('LOGGING')
 @WithTemplate('<h1>My Person Object</h1>', 'app')
 class Person {

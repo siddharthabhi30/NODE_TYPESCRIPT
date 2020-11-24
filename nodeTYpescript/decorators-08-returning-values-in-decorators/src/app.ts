@@ -8,14 +8,20 @@ function Logger(logString: string) {
 
 function WithTemplate(template: string, hookId: string) {
   console.log('TEMPLATE FACTORY');
-  return function(constructor: any) {
-    console.log('Rendering template');
-    const hookEl = document.getElementById(hookId);
-    const p = new constructor();
-    if (hookEl) {
-      hookEl.innerHTML = template;
-      hookEl.querySelector('h1')!.textContent = p.name;
-    }
+  return function<T extends { new (...args: any[]): {name: string} }>(
+    originalConstructor: T
+  ) {
+    return class extends originalConstructor {
+      constructor(..._: any[]) {
+        super();
+        console.log('Rendering template');
+        const hookEl = document.getElementById(hookId);
+        if (hookEl) {
+          hookEl.innerHTML = template;
+          hookEl.querySelector('h1')!.textContent = this.name;
+        }
+      }
+    };
   };
 }
 
@@ -35,8 +41,7 @@ const pers = new Person();
 console.log(pers);
 
 // ---
-//this target is prototype of the object created ,,and if the property is static then constructor of calling functon will be used
-//we use nay..we dont know exact
+
 function Log(target: any, propertyName: string | Symbol) {
   console.log('Property decorator!');
   console.log(target, propertyName);
@@ -68,7 +73,6 @@ function Log4(target: any, name: string | Symbol, position: number) {
 }
 
 class Product {
-  //it also works when this class is registered with javascript
   @Log
   title: string;
   private _price: number;
@@ -92,3 +96,6 @@ class Product {
     return this._price * (1 + tax);
   }
 }
+
+const p1 = new Product('Book', 19);
+const p2 = new Product('Book 2', 29);

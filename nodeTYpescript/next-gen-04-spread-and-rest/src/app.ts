@@ -42,7 +42,7 @@ const person = {
 
 const copiedPerson = { ...person };
 
-
+//rest parameter
 //..., represent couple on number not an array of numbers
 const add = (...numbers: number[]) => { // or we can do , if we want only three argument  --- ...numbers:[number,number,number], a tuple is added
   return numbers.reduce((curResult, curValue) => {

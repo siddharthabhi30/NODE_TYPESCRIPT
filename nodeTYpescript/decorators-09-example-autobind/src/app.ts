@@ -6,26 +6,14 @@ function Logger(logString: string) {
   };
 }
 
-//below is decorator factory not decorator funtion
-//it is returning decorator function
-//decorator function gets returned and decorator fucntion can also return a value
-//we are returning class which is replacing somethings in original ...eg constructor is getting replaced
 function WithTemplate(template: string, hookId: string) {
   console.log('TEMPLATE FACTORY');
-  //..args  is for...we dont know how many parameters the original constructor takes
-  //telling ts that original fucntion is creating an object of name property
   return function<T extends { new (...args: any[]): {name: string} }>(
     originalConstructor: T
   ) {
-    //we are extending it ...bcoxz we dont want to lose property of constructor function
     return class extends originalConstructor {
-      //below code is replacing the old class 
-      //now template thing is happening when an instance is created
-      //we are ignoring parameters we get with _
       constructor(..._: any[]) {
-        //by this we save everything that was in original class 
         super();
-        
         console.log('Rendering template');
         const hookEl = document.getElementById(hookId);
         if (hookEl) {
@@ -42,7 +30,7 @@ function WithTemplate(template: string, hookId: string) {
 @WithTemplate('<h1>My Person Object</h1>', 'app')
 class Person {
   name = 'Max';
-  //I think the new constructor is workingwhen ts runs not in compilation
+
   constructor() {
     console.log('Creating person object...');
   }
@@ -59,8 +47,6 @@ function Log(target: any, propertyName: string | Symbol) {
   console.log(target, propertyName);
 }
 
-
-//here we can return new thing ..so that there is get property and also get property
 function Log2(target: any, name: string, descriptor: PropertyDescriptor) {
   console.log('Accessor decorator!');
   console.log(target);
@@ -104,14 +90,82 @@ class Product {
     this.title = t;
     this._price = p;
   }
-//ON LOG2 AND LOG 2 WE can  return something new but not in log4
+
   @Log3
   getPriceWithTax(@Log4 tax: number) {
     return this._price * (1 + tax);
   }
 }
 
-
-/// below things doesnt initiate decorators
 const p1 = new Product('Book', 19);
 const p2 = new Product('Book 2', 29);
+
+//it is like log3
+function Autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
+  //see browser console..value is the thing that contain fucntion
+  const originalMethod = descriptor.value;
+  const adjDescriptor: PropertyDescriptor = {
+    configurable: true,
+    enumerable: false,
+    get() {
+      //we are binding original object to this method
+      //getter body is just extra code that runs before returning some value
+      const boundFn = originalMethod.bind(this);
+      return boundFn;
+    }
+  };
+  //we are replacing old property descripttor
+  return adjDescriptor;
+}
+
+class Printer {
+  message = 'This works!';
+
+  @Autobind
+  showMessage(this:any) {
+    console.log("some one is calling me")
+    console.log(this)
+    console.log(this.message);
+  }
+}
+
+const p = new Printer();
+p.showMessage();
+
+const button = document.querySelector('button')!;
+
+//without autobind below thing wont work because when we are passing the
+//reference of method we are not binding any this to it ....thats why this.message is null
+button.addEventListener('click', p.showMessage);
+
+class Printer2 {
+  message = 'This wsssssssssssorks!';
+
+  
+  showMessage(this:any) {
+
+    console.log(this.message);
+  }
+}
+
+let nn=new Printer2();
+let xx=nn.showMessage;
+//undefined will be printed
+console.log('see if normal works is printed')
+xx.call(p);
+console.log("some thing diff")
+let xx2=p.showMessage;
+xx2.bind(nn);
+xx2();
+console.log('we cant bind anothjer object ..see below')
+xx2.call(nn)
+//without autobind below thing wont work because when we are passing the
+//reference of method we are not binding any this to it ....thats why this.message is null
+//now undefined is printing
+button.addEventListener('click', nn.showMessage);
+console.log('see if binding can be changed')
+xx.call(nn);
+xx();
+console.log("now binding is to be changed")
+xx.bind(p);
+xx();

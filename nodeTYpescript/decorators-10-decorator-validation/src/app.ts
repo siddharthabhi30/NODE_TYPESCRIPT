@@ -152,6 +152,8 @@ function PositiveNumber(target: any, propName: string) {
   };
 }
 
+
+//throught this function we check if the object ,that is passed through , has gone through all the proper validation
 function validate(obj: any) {
   const objValidatorConfig = registeredValidators[obj.constructor.name];
   if (!objValidatorConfig) {
@@ -173,6 +175,9 @@ function validate(obj: any) {
   return isValid;
 }
 
+
+//we are trying to do validation in the class implementation itself
+//else for every event listener we have to provide validation 
 class Course {
   @Required
   title: string;

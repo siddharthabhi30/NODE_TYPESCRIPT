@@ -129,7 +129,8 @@ const button = document.querySelector('button')!;
 button.addEventListener('click', p.showMessage);
 
 // ---
-
+//this interface has a property name which is string and the value of that property is 
+//is  an object ..that object contains a property which has a property which is an array of string
 interface ValidatorConfig {
   [property: string]: {
     [validatableProp: string]: string[]; // ['required', 'positive']
@@ -146,6 +147,7 @@ function Required(target: any, propName: string) {
 }
 
 function PositiveNumber(target: any, propName: string) {
+  //target .constructor is name of the function that created that object ..possibly the class name herew
   registeredValidators[target.constructor.name] = {
     ...registeredValidators[target.constructor.name],
     [propName]: ['positive']
@@ -159,6 +161,8 @@ function validate(obj: any) {
   if (!objValidatorConfig) {
     return true;
   }
+  console.log('check this outr')
+  console.log(objValidatorConfig);
   let isValid = true;
   for (const prop in objValidatorConfig) {
     for (const validator of objValidatorConfig[prop]) {
@@ -207,3 +211,37 @@ courseForm.addEventListener('submit', event => {
   }
   console.log(createdCourse);
 });
+
+
+interface check {
+  [property: string]:string[]
+}
+
+interface check2 {
+  [property: string]: {
+    [validatableProp: string]: string[]; // ['required', 'positive']
+  };
+}
+
+
+const my1:check={
+  "name":["ss"],
+  "shame":["ss"],
+  lame:['ss']
+}
+
+const my2:check2={
+  name:{
+    lame:['sid'],
+    fame:['sid','ss'],
+    ...my1
+  }
+}
+let mmm=[1,2,3]
+
+let chhh={
+  seet:[...mmm]
+}
+chhh.seet[0]=23232;
+
+console.log(my2);

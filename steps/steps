@@ -7,5 +7,5 @@ yarn add rxjs
 yarn add @reactivex/rxjs
 yarn add -D @types/node @types/express
 yarn add -D nodemon
-
+https://dev.to/bonstine/installing-yarn-on-wsl-38p2
 

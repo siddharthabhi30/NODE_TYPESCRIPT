@@ -22,28 +22,28 @@ example$
   .subscribe(console.log);
 
 
-  const data = of([
-    {
-      brand: 'porsche',
-      model: '911'
-    },
-    {
-      brand: 'porsche',
-      model: 'macan'
-    },
-    {
-      brand: 'ferarri',
-      model: '458'
-    },
-    {
-      brand: 'lamborghini',
-      model: 'urus'
-    }
-  ]);
+  // const data = of([
+  //   {
+  //     brand: 'porsche',
+  //     model: '911'
+  //   },
+  //   {
+  //     brand: 'porsche',
+  //     model: 'macan'
+  //   },
+  //   {
+  //     brand: 'ferarri',
+  //     model: '458'
+  //   },
+  //   {
+  //     brand: 'lamborghini',
+  //     model: 'urus'
+  //   }
+  // ]);
   
-  // get data as brand+model string. Result: 
-  // ["porsche 911", "porsche macan", "ferarri 458", "lamborghini urus"]
-  data
-    .pipe(
-      map(cars => `${cars}`)
-    ).subscribe(cars => console.log(cars,"cars "))
+  // // get data as brand+model string. Result: 
+  // // ["porsche 911", "porsche macan", "ferarri 458", "lamborghini urus"]
+  // data
+  //   .pipe(
+  //     map(cars => `${cars}`)
+  //   ).subscribe(cars => console.log(cars,"cars "))

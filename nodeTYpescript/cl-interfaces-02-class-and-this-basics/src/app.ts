@@ -41,7 +41,7 @@ class B{
   constructor(n: string) {
     this.name = n;
   }
-//NOW WE Set object oif B can only call this fucntiopn
+//NOW WE Set, object of B can only call this fucntiopn
   describe(this:B) {
     return ('Department: ' + this.name);
   }
@@ -59,10 +59,10 @@ let ta=bb.describe;
 
 
 //if this keyword wasnt there then we would be able to 
-//call bel,ow line without errors
+//call below line without errors
 console.log(ta.call(aa),'this can be taken',bb.describe())
 
 
 //overall one method of a class can manipulate other object if
-// if it wants to-- this keyword doesnt mean it ius for only one
+// if it wants to-- this keyword doesnt mean it is for only one
 //class ,unless defined so

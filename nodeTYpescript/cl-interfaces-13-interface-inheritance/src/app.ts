@@ -38,5 +38,5 @@ interface two{
 type check=one|two;
 let aa:one|two;
 aa={
-  num:true
+  num:"dd"
 }

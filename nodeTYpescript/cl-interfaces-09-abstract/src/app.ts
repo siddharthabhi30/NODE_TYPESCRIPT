@@ -14,6 +14,7 @@ abstract class Department {
     return { name: name };
   }
 
+  //way to define abstract class
   abstract describe(this: Department): void;
 
   addEmployee(employee: string) {

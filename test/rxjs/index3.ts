@@ -24,7 +24,7 @@ const getData = (param) => {
   ).subscribe(val => console.log(val));
 
 
-  //it will do the same thing
+  //it will do the same thing as above one
   from([1,2,3,4]).pipe(
     mergeMap(param => getData(param))
   ).subscribe(val => console.log(val));

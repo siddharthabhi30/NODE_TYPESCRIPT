@@ -7,12 +7,20 @@ var operators_1 = require("rxjs/operators");
 // source.pipe(
 //   switchAll()
 // ).subscribe(x => console.log(x));
+//what delay does is ...it makes node
 var getData = function (param) {
-    return rxjs_1.of("retrieved new data with param " + param).pipe(operators_1.delay(1000)
+    return rxjs_1.of("retrieved new data with param " + param).pipe(operators_1.delay(5000)
     //why delay changes the working of switch map
     );
 };
+var final = ['s'];
 //https://rxjs-dev.firebaseapp.com/api/operators/switchAll
-rxjs_1.from([1, 2, 3, 4]).pipe(operators_1.map(function (param) { return getData(param); }), operators_1.switchAll()).subscribe(function (val) { return console.log(val); });
+// from([1,2,3,4]).pipe(
+//   map(param => getData(param)),
+//   switchAll()
+// ).subscribe(val => console.log(val));
 //above one is similar to this
-rxjs_1.from([1, 2, 3, 4]).pipe(operators_1.switchMap(function (param) { return getData(param); })).subscribe(function (val) { return console.log(val); });
+rxjs_1.from([1, 2, 3, 4]).pipe(operators_1.map(function (param) { return getData(param); }), operators_1.combineAll()).subscribe(function (val) {
+    console.log(val);
+});
+console.log(final);

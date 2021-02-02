@@ -11,7 +11,9 @@ function gap() {
     console.log(" ");
 }
 var getData = function (param) {
-    return rxjs_1.of("retrieved new data with param " + param).pipe();
+    return rxjs_1.of("retrieved new data with param " + param).pipe(
+    //why delay changes the working of switch map
+    operators_1.delay(1000));
 };
 rxjs_1.from([1, 2, 3, 4]).pipe(operators_1.map(function (param) { return getData(param); }), operators_1.mergeAll()).subscribe(function (val) { return console.log(val); });
 //it will do the same thing

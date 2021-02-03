@@ -46,7 +46,7 @@ user1.greet('Hi there - I am');
 console.log(user1);
 
 
-//see tjhe error .. required partameter cant follow optional parameter
+//see the error .. required partameter cant follow optional parameter
 let a=(name?:string,noo:number)=>console.log(name,noo);
 let cc=a(344);
 

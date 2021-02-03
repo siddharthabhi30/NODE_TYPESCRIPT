@@ -1,1 +1,3 @@
 npm install @ngrx/core @ngrx/store  --save
+
+npm install @ngrx/core @ngrx/store @ngrx/effects @ngrx/store-devtools @ngrx/router-store --save

@@ -103,12 +103,25 @@ if (userInputElement) {
   (userInputElement as HTMLInputElement).value = 'Hi there!';
 }
 
+
+
+
+
+
+
+
+
+
 interface ErrorContainer { // { email: 'Not a valid email', username: 'Must start with a character!' }
 //this is called index type  
-//prop:string is saying i dont know the property typr but it should be string and last string says value of that property mustr be string
+//prop:string is saying i dont know the property typr but it should be string
+// and last string says value of that property mustr be string
 // property name should be of type string 
 //and above rules has to be applied to all the property name of object referring to this interface 
 //we can add as many propertyu as a want i dont have any restriction
+
+
+id:number,
 [prop: string]: string;
 
 }

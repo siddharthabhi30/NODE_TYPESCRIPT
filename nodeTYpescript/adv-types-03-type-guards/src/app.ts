@@ -3,7 +3,7 @@ type Admin = {
   privileges: string[];
 };
 
-type Employee = {
+type  Employee = {
   name: string;
   startDate: Date;
 };

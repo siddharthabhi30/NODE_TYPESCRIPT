@@ -39,7 +39,7 @@ function countAndDescribe2(element: Lengthy): [Lengthy, string] {
   } else if (element.length > 1) {
     descriptionText = 'Got ' + element.length + ' elements.';
   }
-  return [element, descriptionText];
+  return [ element, descriptionText];
 }
 //we are sending these type of data which are string and array ...both have .length property in them as js internally converts them 
 console.log(countAndDescribe('hi there'));
@@ -54,7 +54,8 @@ interface again{
 }
 
 
-//error is there but ...in function parameter there wasnt any
+//error is there but ...in function parameter there wasnt any because in fuction param there
+//an object extending these interface and object can have extra property
 let aa:again={
   check:32,
   nn:32

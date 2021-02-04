@@ -16,7 +16,9 @@ class Person {
 }
 
 
-//if we comment out below function we ll still get the logging done....decorators are initiated when class is defined...wehgen constructor is defined
+//if we comment out below function we ll still get the logging done....decorators
+// are initiated 
+//when class is defined...wehgen constructor is defined
 //const pers = new Person();
 
 //console.log(pers);

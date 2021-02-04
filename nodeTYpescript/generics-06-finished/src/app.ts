@@ -84,16 +84,23 @@ interface CourseGoal {
   completeUntil: Date;
 }
 
+
+
+
+
 function createCourseGoal(
   title: string,
   description: string,
   date: Date
 ): CourseGoal {
   //we could have initialized object directly .,,,,but what if we want to do it step by step
+  //partial turns into a type where all the properties are optional
   let courseGoal: Partial<CourseGoal> = {};
   courseGoal.title = title;
   courseGoal.description = description;
   courseGoal.completeUntil = date;
+
+ 
   //partial tells ts that i am creating an object but it has to be partial...at the end ..we need to converty back
   return courseGoal as CourseGoal;
 }
@@ -152,3 +159,19 @@ function aa<U>(oo:U){
 
 const tyty=aa<string>(322);
 console.log(tyty);
+
+
+interface test{
+  name:string
+}
+class our implements test{
+  name:string='';
+  id:number=43;
+
+}
+function check<T extends test>(node:T){
+  console.log(node);
+}
+//we have extends the interface to have extra property ..
+//like classes extends the inteface
+check({name:"sid",id:32});

@@ -43,7 +43,7 @@ function extractAndConvert<T extends object, U extends keyof T>(
 
 extractAndConvert({ name: 'Max' }, 'name');
 
-class DataStorage<T extends string | number | boolean> {
+class DataStorage<T extends string | number | boolean > {
   private data: T[] = [];
 
   addItem(item: T) {
@@ -73,13 +73,15 @@ console.log(textStorage.getItems());
 const numberStorage = new DataStorage<number>();
 
 //below code doesn't work..objects are searchable by using exact reference of object ..eg using maxObj for deleting purpose only
-// const objStorage = new DataStorage<object>();
-// const maxObj = {name: 'Max'};
-// objStorage.addItem(maxObj);
-// objStorage.addItem({name: 'Manu'});
-// // ...
-// objStorage.removeItem(maxObj);
-// console.log(objStorage.getItems());
+//https://academind.com/tutorials/reference-vs-primitive-values/ 
+
+const objStorage = new DataStorage<object>();
+const maxObj = {name: 'Max'};
+objStorage.addItem(maxObj);
+objStorage.addItem({name: 'Manu'});
+// ...
+objStorage.removeItem(maxObj);
+console.log(objStorage.getItems());
 
 
 let a=[];

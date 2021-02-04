@@ -14,14 +14,19 @@ type Employee = {
 
 //intersection is happening here
 type ElevatedEmployee = Admin & Employee;
+//think about above problem as if two are & ..then if we can make both type by 
+//dividing them into two pieces
+
+//for | if we can make one of the type by dividing them
+
 
 //think about it carefully
 type ElevatedEmployee2 = Admin | Employee;
 
-
 const e2: ElevatedEmployee2 = {
   name: 'Max',
-  privileges: ['create-server'],
+ 
+  startDate: new Date(),
   lame:34,
   vame:324
 };

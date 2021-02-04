@@ -46,6 +46,7 @@ const fetchedUserData = {
 
 //first question mark chefk if  fetchedUserData exists or not if exist fetch job
 //basically it is multi step if check
+//we actually use it when ...we dont know if the data exists
 console.log(fetchedUserData?.job?.title);
 
 

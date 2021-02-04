@@ -111,4 +111,26 @@ function moveAnimal(animal: Animal) {
   console.log('Moving at speed: ' + speed);
 }
 
-moveAnimal({type: 'bird', flyingSpeed: 10});
+
+//below error is beacuse of discriminated union......we are discriminating which 
+//union we are going to pickup
+moveAnimal({type: 'bird', flyingSpeed: 10,runningSpeed:23});
+
+
+
+
+type Bird2 ={
+  //this is actually not a value
+  type: string
+  flyingSpeed: number;
+}
+
+type Horse2 ={
+  type: string;
+  runningSpeed: number;
+}
+
+
+type Animal2 = Bird2 | Horse2;
+
+const myvar2:Animal2={type: 'bird', flyingSpeed: 10,runningSpeed:23}

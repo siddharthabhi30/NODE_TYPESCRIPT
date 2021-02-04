@@ -1,5 +1,6 @@
 function Logger(logString: string) {
   // we can write _ instead of constructor if we dont want its use
+  //now below function is the actual decorator
   return function(constructor: Function) {
     console.log(logString);
     console.log();

@@ -35,13 +35,15 @@ const pers = new Person();
 console.log(pers);
 
 // ---
-//this target is prototype of the object created ,,and if the property is static then constructor of calling functon will be used
-//we use nay..we dont know exact
+//this target is prototype of the object created ,,and
+// if the property is static then constructor of calling functon will be used
+//we use say..we dont know exact
 function Log(target: any, propertyName: string | Symbol) {
   console.log('Property decorator!');
   console.log(target, propertyName);
 }
 
+//target may be prototype or constructor
 function Log2(target: any, name: string, descriptor: PropertyDescriptor) {
   console.log('Accessor decorator!');
   console.log(target);

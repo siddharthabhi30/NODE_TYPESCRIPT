@@ -38,9 +38,9 @@ const person = {
 
 const copiedPerson = { ...person };
 
-const copiedPerson2=person
+const copiedPerson2=copiedPerson
 
-copiedPerson2.age[0]=2323;
+copiedPerson.age[0]=2323;
 
 
 console.log(person,copiedPerson,copiedPerson2);
